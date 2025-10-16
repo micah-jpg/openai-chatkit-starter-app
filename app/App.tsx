@@ -29,11 +29,7 @@ export default function App() {
     >
       <div className="mx-auto w-full max-w-5xl">
         <ChatKitPanel
-          theme={{
-            background: "#ffffff",
-            text: "#1a1a1a",
-            accent: "#0071e3",
-            accentForeground: "#ffffff",
+          theme="light"
           }}
           onWidgetAction={handleWidgetAction}
           onResponseEnd={handleResponseEnd}
