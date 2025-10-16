@@ -17,7 +17,7 @@
   --accent: #4da3ff;
   --header-bg: #004a99;
   --header-text: #ffffff;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 {
@@ -26,7 +26,7 @@
     --accent: #4da3ff;
     --header-bg: #004a99;
     --header-text: #ffffff;
-    color-scheme: dark;
+    color-scheme: light;
   }
 }
 
