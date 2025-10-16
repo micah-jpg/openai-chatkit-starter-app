@@ -52,19 +52,22 @@ export default function App() {
           }}
         >
 <ChatKitPanel
-  theme={{
-    background: "#ffffff", // main background
-    foreground: "#1a1a1a", // text color
-    accent: "#0071e3", // DoctorDisability blue
-    muted: "#f5f5f5", // subtle gray for secondary areas
-    border: "#e5e7eb", // light gray borders
-    surface: "#ffffff", // input and footer area background
-    secondary: "#ffffff", // ensures chat footer stays white
-  }}
+  theme={
+    {
+      background: "#ffffff",
+      foreground: "#1a1a1a",
+      accent: "#0071e3",
+      muted: "#f5f5f5",
+      border: "#e5e7eb",
+      surface: "#ffffff",
+      secondary: "#ffffff",
+    } as any
+  }
   onWidgetAction={handleWidgetAction}
   onResponseEnd={handleResponseEnd}
   onThemeRequest={setScheme}
 />
+
 
         </div>
 
