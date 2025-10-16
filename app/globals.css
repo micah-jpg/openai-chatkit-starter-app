@@ -84,3 +84,26 @@ button:hover, .btn:hover, a:hover {
   background-color: #ffffff !important;
 }
 
+/* Override ChatKit light theme colors */
+[data-chatkit-theme="light"] {
+  --background: #ffffff !important;
+  --foreground: #1a1a1a !important;
+  --accent: #0071e3 !important;
+}
+
+/* Make the input/footer area white */
+[data-chatkit-theme="light"] footer,
+[data-chatkit-theme="light"] .chatkit-input,
+[data-chatkit-theme="light"] .chatkit-input-container,
+[data-chatkit-theme="light"] .chatkit-scroll-container,
+[data-chatkit-theme="light"] .chatkit-chat,
+[data-chatkit-theme="light"] .chatkit-window {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+
+/* Keep send button blue */
+[data-chatkit-theme="light"] button {
+  background-color: #0071e3 !important;
+  color: #ffffff !important;
+}
