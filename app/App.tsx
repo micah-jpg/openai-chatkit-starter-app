@@ -52,11 +52,25 @@ export default function App() {
           }}
         >
           <ChatKitPanel
-            theme="light"
-            onWidgetAction={handleWidgetAction}
-            onResponseEnd={handleResponseEnd}
-            onThemeRequest={setScheme}
-          />
+  theme={{
+    light: {
+      background: "#ffffff",
+      foreground: "#1a1a1a",
+      accent: "#0071e3",
+      muted: "#f5f5f5",
+      border: "#e5e7eb",
+      inputBackground: "#ffffff",
+      inputText: "#1a1a1a",
+      footerBackground: "#ffffff", // fixes dark navy bar
+      sendButtonBackground: "#0071e3",
+      sendButtonText: "#ffffff",
+    },
+  }}
+  onWidgetAction={handleWidgetAction}
+  onResponseEnd={handleResponseEnd}
+  onThemeRequest={setScheme}
+/>
+
         </div>
 
         {/* Navy bottom strip */}
