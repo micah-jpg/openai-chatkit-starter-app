@@ -23,18 +23,27 @@ export default function App() {
     <main
       className="flex min-h-screen flex-col items-center justify-between"
       style={{
-        backgroundColor: "#26315e", // navy background (DoctorDisability navy)
+        backgroundColor: "#26315e", // navy frame
         color: "#1a1a1a",
       }}
     >
-      {/* Top navy bar */}
+      {/* Top navy bar with centered logo */}
       <div
         style={{
           backgroundColor: "#26315e",
-          height: "60px",
+          height: "70px",
           width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
         }}
-      ></div>
+      >
+        <img
+          src="https://www.doctordisability.com/wp-content/uploads/2020/05/Doctor-Disability-Logo-White.png"
+          alt="Doctor Disability Logo"
+          style={{ height: "36px", objectFit: "contain" }}
+        />
+      </div>
 
       {/* Chat area */}
       <div
