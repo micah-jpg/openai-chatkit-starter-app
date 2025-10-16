@@ -47,3 +47,22 @@ button, .btn, a {
 button:hover, .btn:hover, a:hover {
   background-color: var(--accent-hover);
 }
+
+/* === Fix ChatKit dark input/footer bar === */
+[data-chatkit-theme="light"] footer,
+[data-chatkit-theme="light"] .chatkit-input,
+[data-chatkit-theme="light"] .chatkit-input-container {
+  background-color: #ffffff !important; /* make input area white */
+  border-top: 1px solid #e5e7eb !important; /* subtle gray divider */
+}
+
+/* keep text and button colors consistent */
+[data-chatkit-theme="light"] textarea {
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+}
+
+[data-chatkit-theme="light"] button {
+  background-color: #0071e3 !important; /* DoctorDisability blue */
+  color: #ffffff !important;
+}
