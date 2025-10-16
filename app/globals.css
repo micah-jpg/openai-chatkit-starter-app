@@ -66,3 +66,9 @@ button:hover, .btn:hover, a:hover {
   background-color: #0071e3 !important; /* DoctorDisability blue */
   color: #ffffff !important;
 }
+/* Remove dark navy background below input */
+[data-chatkit-theme="light"] .chatkit-main,
+[data-chatkit-theme="light"] .chatkit-window,
+[data-chatkit-theme="light"] .chatkit-root {
+  background-color: #ffffff !important;
+}
