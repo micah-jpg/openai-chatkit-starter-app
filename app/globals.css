@@ -107,3 +107,21 @@ button:hover, .btn:hover, a:hover {
   background-color: #0071e3 !important;
   color: #ffffff !important;
 }
+/* === Remove all outer white/navy borders === */
+[data-chatkit-theme="light"] .chatkit-root,
+[data-chatkit-theme="light"] .chatkit-window,
+[data-chatkit-theme="light"] .chatkit-chat,
+[data-chatkit-theme="light"] .chatkit-main,
+[data-chatkit-theme="light"] .chatkit-scroll-container,
+[data-chatkit-theme="light"] .chatkit-message-list,
+[data-chatkit-theme="light"] .chatkit-footer {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove internal padding or spacing at edges */
+[data-chatkit-theme="light"] .chatkit-root {
+  padding: 0 !important;
+  margin: 0 !important;
+}
