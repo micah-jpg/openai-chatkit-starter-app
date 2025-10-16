@@ -1,14 +1,22 @@
 @import "tailwindcss";
 
+/* Base color variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff;         /* Chat background */
+  --foreground: #1a1a1a;         /* Main text */
+  --accent: #0071e3;             /* Brand blue */
+  --accent-hover: #005ec7;       /* Hover state */
+  --header-bg: #0071e3;          /* Header background */
+  --header-text: #ffffff;        /* Header text */
   color-scheme: light;
 }
 
 :root[data-color-scheme="dark"] {
   --background: #0a0a0a;
   --foreground: #ededed;
+  --accent: #4da3ff;
+  --header-bg: #004a99;
+  --header-text: #ffffff;
   color-scheme: dark;
 }
 
@@ -16,6 +24,9 @@
   :root:not([data-color-scheme]) {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --accent: #4da3ff;
+    --header-bg: #004a99;
+    --header-text: #ffffff;
     color-scheme: dark;
   }
 }
@@ -23,6 +34,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
   --font-sans: Arial, Helvetica, sans-serif;
   --font-mono: SFMono-Regular, Consolas, "Liberation Mono", monospace;
 }
@@ -32,3 +44,27 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+/* Optional: style the chat header */
+.chat-header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  font-weight: bold;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Optional: accent color for buttons and links */
+button, .btn, a {
+  background-color: var(--accent);
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+button:hover, .btn:hover, a:hover {
+  background-color: var(--accent-hover);
+}
+
