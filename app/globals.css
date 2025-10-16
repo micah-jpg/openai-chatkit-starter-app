@@ -72,3 +72,15 @@ button:hover, .btn:hover, a:hover {
 [data-chatkit-theme="light"] .chatkit-root {
   background-color: #ffffff !important;
 }
+/* Remove leftover navy background under input area */
+[data-chatkit-theme="light"] .chatkit-scroll-container,
+[data-chatkit-theme="light"] .chatkit-message-list,
+[data-chatkit-theme="light"] .chatkit-chat {
+  background-color: #ffffff !important;
+}
+
+/* Make sure the very bottom area stays white */
+[data-chatkit-theme="light"] .chatkit-chat > div:last-child {
+  background-color: #ffffff !important;
+}
+
