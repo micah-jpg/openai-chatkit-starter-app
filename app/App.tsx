@@ -21,56 +21,53 @@ export default function App() {
 
   return (
     <main
-      className="flex min-h-screen flex-col items-center justify-between"
+      className="flex min-h-screen flex-col items-center justify-center"
       style={{
-        backgroundColor: "#26315e", // navy frame
+        backgroundColor: "#ffffff",
         color: "#1a1a1a",
       }}
     >
-      {/* Top navy bar with centered logo */}
       <div
+        className="mx-auto w-full max-w-5xl flex-grow flex flex-col items-center justify-center rounded-xl overflow-hidden"
         style={{
-          backgroundColor: "#26315e",
-          height: "70px",
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img
-          src="https://www.doctordisability.com/wp-content/uploads/2020/05/Doctor-Disability-Logo-White.png"
-          alt="Doctor Disability Logo"
-          style={{ height: "36px", objectFit: "contain" }}
-        />
-      </div>
-
-      {/* Chat area */}
-      <div
-        className="mx-auto w-full max-w-5xl flex-grow flex items-center justify-center"
-        style={{
-          backgroundColor: "#ffffff",
-          borderRadius: "12px",
-          padding: "1rem",
           boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+          backgroundColor: "#ffffff",
         }}
       >
-        <ChatKitPanel
-          theme="light"
-          onWidgetAction={handleWidgetAction}
-          onResponseEnd={handleResponseEnd}
-          onThemeRequest={setScheme}
-        />
-      </div>
+        {/* Navy top strip */}
+        <div
+          style={{
+            backgroundColor: "#26315e",
+            height: "16px",
+            width: "100%",
+          }}
+        ></div>
 
-      {/* Bottom navy bar */}
-      <div
-        style={{
-          backgroundColor: "#26315e",
-          height: "60px",
-          width: "100%",
-        }}
-      ></div>
+        {/* Chat panel */}
+        <div
+          style={{
+            flexGrow: 1,
+            width: "100%",
+            backgroundColor: "#ffffff",
+          }}
+        >
+          <ChatKitPanel
+            theme="light"
+            onWidgetAction={handleWidgetAction}
+            onResponseEnd={handleResponseEnd}
+            onThemeRequest={setScheme}
+          />
+        </div>
+
+        {/* Navy bottom strip */}
+        <div
+          style={{
+            backgroundColor: "#26315e",
+            height: "16px",
+            width: "100%",
+          }}
+        ></div>
+      </div>
     </main>
   );
 }
