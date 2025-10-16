@@ -21,23 +21,13 @@ export default function App() {
 
   return (
     <main
-      className="flex min-h-screen flex-col"
+      className="flex min-h-screen flex-col items-center justify-center"
       style={{
-        backgroundColor: "#ffffff",
+        backgroundColor: "#ffffff", // page background
         color: "#1a1a1a",
       }}
     >
-      {/* Navy top strip */}
-      <div
-        style={{
-          backgroundColor: "#26315e",
-          height: "16px",
-          width: "100%",
-        }}
-      />
-
-      {/* Chat Panel (no white box) */}
-      <div style={{ flexGrow: 1 }}>
+      <div className="w-full h-full">
         <ChatKitPanel
           theme="light"
           onWidgetAction={handleWidgetAction}
@@ -45,15 +35,6 @@ export default function App() {
           onThemeRequest={setScheme}
         />
       </div>
-
-      {/* Navy bottom strip */}
-      <div
-        style={{
-          backgroundColor: "#26315e",
-          height: "16px",
-          width: "100%",
-        }}
-      />
     </main>
   );
 }
