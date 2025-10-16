@@ -9,17 +9,17 @@ export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
     label: "How do I get a quote?",
     prompt: "How do I get a quote?",
-    icon: "chart-line",
+    icon: "circle-question",
   },
   {
     label: "Explain own-occupation coverage",
     prompt: "Explain own-occupation coverage",
-    icon: "book-open",
+    icon: "circle-question",
   },
   {
     label: "How much coverage do I need?",
     prompt: "How much coverage do I need?",
-    icon: "calculator",
+    icon: "circle-question",
   },
 ];
 
