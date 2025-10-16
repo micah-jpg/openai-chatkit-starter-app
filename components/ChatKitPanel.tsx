@@ -281,6 +281,9 @@ export function ChatKitPanel({
     threadItemActions: {
       feedback: false,
     },
+      history: {
+    enabled: false, // 🚫 disables chat history button
+  },
     onClientTool: async (invocation: {
       name: string;
       params: Record<string, unknown>;
