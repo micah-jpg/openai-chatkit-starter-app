@@ -5,7 +5,7 @@ import { ChatKitPanel, type FactAction } from "@/components/ChatKitPanel";
 import { useColorScheme } from "@/hooks/useColorScheme";
 
 export default function App() {
-  const { setScheme } = useColorScheme(); // we won’t need to read current scheme
+  const { setScheme } = useColorScheme();
 
   const handleWidgetAction = useCallback(async (action: FactAction) => {
     if (process.env.NODE_ENV !== "production") {
@@ -23,14 +23,13 @@ export default function App() {
     <main
       className="flex min-h-screen flex-col items-center justify-end"
       style={{
-        backgroundColor: "#ffffff", // white background
-        color: "#1a1a1a", // dark text
+        backgroundColor: "#ffffff",
+        color: "#1a1a1a",
       }}
     >
       <div className="mx-auto w-full max-w-5xl">
         <ChatKitPanel
           theme="light"
-          }}
           onWidgetAction={handleWidgetAction}
           onResponseEnd={handleResponseEnd}
           onThemeRequest={setScheme}
