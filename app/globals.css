@@ -11,25 +11,6 @@
   color-scheme: light;
 }
 
-{
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --accent: #4da3ff;
-  --header-bg: #004a99;
-  --header-text: #ffffff;
-  color-scheme: light;
-}
-
-{
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --accent: #4da3ff;
-    --header-bg: #004a99;
-    --header-text: #ffffff;
-    color-scheme: light;
-  }
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -66,4 +47,3 @@ button, .btn, a {
 button:hover, .btn:hover, a:hover {
   background-color: var(--accent-hover);
 }
-
