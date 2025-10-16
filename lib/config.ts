@@ -7,15 +7,26 @@ export const CREATE_SESSION_ENDPOINT = "/api/create-session";
 
 export const STARTER_PROMPTS: StartScreenPrompt[] = [
   {
-    label: "What can you do?",
-    prompt: "What can you do?",
-    icon: "circle-question",
+    label: "How do I get a quote?",
+    prompt: "How do I get a quote?",
+    icon: "chart-line",
+  },
+  {
+    label: "Explain own-occupation coverage",
+    prompt: "Explain own-occupation coverage",
+    icon: "book-open",
+  },
+  {
+    label: "How much coverage do I need?",
+    prompt: "How much coverage do I need?",
+    icon: "calculator",
   },
 ];
 
+
 export const PLACEHOLDER_INPUT = "Ask anything...";
 
-export const GREETING = "How can I help you today?";
+export const GREETING = "Hi there! Ready to explore your disability insurance options?";
 
 export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   color: {
