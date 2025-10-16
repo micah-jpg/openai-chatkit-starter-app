@@ -4,14 +4,14 @@
 :root {
   --background: #ffffff;         /* Chat background */
   --foreground: #1a1a1a;         /* Main text */
-  --accent: #0071e3;             /* Brand blue */
+  --accent: #26315e;             /* Brand blue */
   --accent-hover: #005ec7;       /* Hover state */
   --header-bg: #0071e3;          /* Header background */
   --header-text: #ffffff;        /* Header text */
   color-scheme: light;
 }
 
-:root[data-color-scheme="dark"] {
+{
   --background: #0a0a0a;
   --foreground: #ededed;
   --accent: #4da3ff;
@@ -20,8 +20,7 @@
   color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root:not([data-color-scheme]) {
+{
     --background: #0a0a0a;
     --foreground: #ededed;
     --accent: #4da3ff;
