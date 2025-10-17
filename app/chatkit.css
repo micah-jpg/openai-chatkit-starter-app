@@ -43,8 +43,12 @@
   cursor: pointer;
 }
 
-/* Hide the “Thought for Xs” text */
-#chatkit-app span.AMqy5.truncate {
+/* Completely hide "Thought for Xs" and block interactions */
+#chatkit-thread-container span.ad2tU span span span span,
+#chatkit-thread-container span.AMqy5.truncate[data-idle] {
   display: none !important;
   visibility: hidden !important;
+  pointer-events: none !important;
+  user-select: none !important;
 }
+
