@@ -126,7 +126,7 @@ button:hover, .btn:hover, a:hover {
   margin: 0 !important;
 }
 
-/* === REMOVE ALL OUTER WHITE BORDERS AND GAPS === */
+/* === CLEAN WHITE CHAT BACKGROUND, NO BORDERS OR SHADOWS === */
 html, body, main, #__next,
 [data-chatkit-theme="light"],
 [data-chatkit-theme="light"] .chatkit-root,
@@ -135,7 +135,7 @@ html, body, main, #__next,
 [data-chatkit-theme="light"] .chatkit-chat,
 [data-chatkit-theme="light"] .chatkit-scroll-container,
 [data-chatkit-theme="light"] .chatkit-message-list {
-  background: transparent !important;
+  background: #ffffff !important; /* solid white chat background */
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
@@ -143,34 +143,34 @@ html, body, main, #__next,
   margin: 0 !important;
 }
 
-/* Force body + html to remove white space */
+/* Remove top/bottom gaps or padding */
 html, body {
   height: 100% !important;
-  background: transparent !important;
   margin: 0 !important;
   padding: 0 !important;
+  background: #ffffff !important;
   overflow: hidden !important;
 }
 
-/* Remove internal overflow / radius that creates white curve */
+/* Remove rounded corners and hidden overflow if any */
 [data-chatkit-theme="light"] .chatkit-window {
   border-radius: 0 !important;
   overflow: hidden !important;
 }
 
-/* Make footer/input fully transparent */
+/* Footer/Input area white and clean */
 [data-chatkit-theme="light"] footer,
 [data-chatkit-theme="light"] .chatkit-input,
 [data-chatkit-theme="light"] .chatkit-input-container {
-  background-color: transparent !important;
+  background-color: #ffffff !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-/* Remove weird top separator line or shadows */
+/* No header borders or shadows */
 [data-chatkit-theme="light"] .chatkit-header,
 [data-chatkit-theme="light"] .chatkit-main > div:first-child {
   border: none !important;
-  background: transparent !important;
+  background: #ffffff !important;
   box-shadow: none !important;
 }
