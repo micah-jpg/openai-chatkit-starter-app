@@ -125,3 +125,52 @@ button:hover, .btn:hover, a:hover {
   padding: 0 !important;
   margin: 0 !important;
 }
+
+/* === REMOVE ALL OUTER WHITE BORDERS AND GAPS === */
+html, body, main, #__next,
+[data-chatkit-theme="light"],
+[data-chatkit-theme="light"] .chatkit-root,
+[data-chatkit-theme="light"] .chatkit-window,
+[data-chatkit-theme="light"] .chatkit-main,
+[data-chatkit-theme="light"] .chatkit-chat,
+[data-chatkit-theme="light"] .chatkit-scroll-container,
+[data-chatkit-theme="light"] .chatkit-message-list {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Force body + html to remove white space */
+html, body {
+  height: 100% !important;
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Remove internal overflow / radius that creates white curve */
+[data-chatkit-theme="light"] .chatkit-window {
+  border-radius: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Make footer/input fully transparent */
+[data-chatkit-theme="light"] footer,
+[data-chatkit-theme="light"] .chatkit-input,
+[data-chatkit-theme="light"] .chatkit-input-container {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove weird top separator line or shadows */
+[data-chatkit-theme="light"] .chatkit-header,
+[data-chatkit-theme="light"] .chatkit-main > div:first-child {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
