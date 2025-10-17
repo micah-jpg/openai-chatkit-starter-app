@@ -1,31 +1,18 @@
-import Script from "next/script";
-import type { Metadata } from "next";
-import "./globals.css";
+import "./chatkit.css";
 
-export const metadata: Metadata = {
-  title: "AgentKit demo",
-  description: "Demo of ChatKit with hosted workflow",
+export const metadata = {
+  title: "Doctor Disability Chat",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function ChatLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-color-scheme="light">
-      <head>
-        <meta name="robots" content="noindex, nofollow" />
-        <Script
-          src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
-          strategy="beforeInteractive"
-        />
-      </head>
+    <html lang="en">
       <body
-        className="antialiased"
         style={{
-          backgroundColor: "var(--background)",
-          color: "var(--foreground)",
+          margin: 0,
+          padding: 0,
+          background: "#ffffff",
+          overflow: "hidden",
         }}
       >
         {children}
@@ -33,4 +20,3 @@ export default function RootLayout({
     </html>
   );
 }
-
