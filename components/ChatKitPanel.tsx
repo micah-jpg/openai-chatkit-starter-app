@@ -61,27 +61,27 @@ export function ChatKitPanel({
       : "pending"
   );
   const [widgetInstanceKey, setWidgetInstanceKey] = useState(0);
-// 👇 PASTE THE NEW, CORRECT CODE HERE
+// 👇 PASTE THE FINAL, CORRECT CODE HERE
   useEffect(() => {
-    const styleId = 'chatkit-workflow-style-override';
-    if (document.getElementById(styleId)) {
-      return;
-    }
-
-    const style = document.createElement('style');
-    style.id = styleId;
-    style.innerHTML = `
-      [data-thread-item="workflow"] {
-        display: none !important;
+    const observer = new MutationObserver((mutations, obs) => {
+      const chatkitElement = document.querySelector('openai-chatkit');
+      
+      if (chatkitElement && chatkitElement.shadowRoot) {
+        const thoughtElement = chatkitElement.shadowRoot.querySelector('[data-thread-item="workflow"]');
+        
+        if (thoughtElement) {
+          (thoughtElement as HTMLElement).style.display = 'none';
+        }
       }
-    `;
-    document.head.appendChild(style);
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
 
     return () => {
-      const styleElement = document.getElementById(styleId);
-      if (styleElement) {
-        styleElement.remove();
-      }
+      observer.disconnect();
     };
   }, []);
   // END OF NEW CODE
