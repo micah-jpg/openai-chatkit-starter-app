@@ -47,3 +47,9 @@
   padding: 8px 12px !important;
   cursor: pointer;
 }
+/* Hide ChatGPT "Thought for Xs" messages */
+[data-chatkit-theme] .chatkit-thought,
+[data-chatkit-theme] .chatkit-thought-bubble,
+[data-chatkit-theme] .chatkit-system-message {
+  display: none !important;
+}
