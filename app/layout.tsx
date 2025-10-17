@@ -15,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-color-scheme="light">
       <head>
+        <meta name="robots" content="noindex, nofollow" />
         <Script
           src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
           strategy="beforeInteractive"
