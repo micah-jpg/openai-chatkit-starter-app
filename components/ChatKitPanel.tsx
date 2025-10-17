@@ -279,12 +279,14 @@ export function ChatKitPanel({
       },
     },
     threadItemActions: {
-      feedback: false,
-      thought: false, // 👈 Add this line to hide the thought process
-    },
-      history: {
-    enabled: false, // 🚫 disables chat history button
-  },
+    feedback: false, // This stays the same
+  },
+  history: {
+    enabled: false,
+  },
+  thought: {
+    enabled: false, // 👈 ADD THIS NEW BLOCK
+  },
     onClientTool: async (invocation: {
       name: string;
       params: Record<string, unknown>;
