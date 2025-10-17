@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* === Base Site Styles (Safe) === */
+/* === Global site-safe styles === */
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;
@@ -11,21 +11,13 @@
   color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-accent: var(--accent);
-  --font-sans: Arial, Helvetica, sans-serif;
-  --font-mono: SFMono-Regular, Consolas, "Liberation Mono", monospace;
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* === Buttons and Links (Site Safe) === */
+/* === Button & link defaults (site safe) === */
 button, .btn, a {
   background-color: var(--accent);
   color: #fff;
@@ -39,14 +31,16 @@ button:hover, .btn:hover, a:hover {
   background-color: var(--accent-hover);
 }
 
-/* === CHATKIT SCOPED STYLES (Only affect chat) === */
-[data-chatkit-theme="light"] * {
+/* === BEGIN CHATKIT-SPECIFIC STYLES === */
+/* Wrap all chat styles in a scope unique to the chat iframe app */
+#chatkit-app [data-chatkit-theme="light"],
+#chatkit-app [data-chatkit-theme="light"] * {
   box-shadow: none !important;
   border: none !important;
 }
 
-[data-chatkit-theme="light"] html,
-[data-chatkit-theme="light"] body {
+#chatkit-app [data-chatkit-theme="light"] html,
+#chatkit-app [data-chatkit-theme="light"] body {
   background-color: #ffffff !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -54,35 +48,41 @@ button:hover, .btn:hover, a:hover {
   overflow: hidden !important;
 }
 
-[data-chatkit-theme="light"] .chatkit-root,
-[data-chatkit-theme="light"] .chatkit-window,
-[data-chatkit-theme="light"] .chatkit-main,
-[data-chatkit-theme="light"] .chatkit-chat,
-[data-chatkit-theme="light"] .chatkit-scroll-container,
-[data-chatkit-theme="light"] .chatkit-message-list {
+/* Chat background and core layout */
+#chatkit-app [data-chatkit-theme="light"] .chatkit-root,
+#chatkit-app [data-chatkit-theme="light"] .chatkit-window,
+#chatkit-app [data-chatkit-theme="light"] .chatkit-main,
+#chatkit-app [data-chatkit-theme="light"] .chatkit-chat,
+#chatkit-app [data-chatkit-theme="light"] .chatkit-scroll-container,
+#chatkit-app [data-chatkit-theme="light"] .chatkit-message-list {
   background-color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-[data-chatkit-theme="light"] .chatkit-header,
-[data-chatkit-theme="light"] .chatkit-footer,
-[data-chatkit-theme="light"] .chatkit-input-container {
-  background-color: #ffffff !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-[data-chatkit-theme="light"] footer,
-[data-chatkit-theme="light"] .chatkit-input,
-[data-chatkit-theme="light"] .chatkit-input-container {
+/* Input/footer clean */
+#chatkit-app [data-chatkit-theme="light"] footer,
+#chatkit-app [data-chatkit-theme="light"] .chatkit-input,
+#chatkit-app [data-chatkit-theme="light"] .chatkit-input-container {
   background-color: #ffffff !important;
   border-top: 1px solid #e5e7eb !important;
   box-shadow: none !important;
 }
 
-/* === Keep send button blue === */
-[data-chatkit-theme="light"] button {
+/* Send button */
+#chatkit-app [data-chatkit-theme="light"] button {
   background-color: #0071e3 !important;
   color: #ffffff !important;
 }
+
+/* Remove header/footer outlines */
+#chatkit-app [data-chatkit-theme="light"] .chatkit-header,
+#chatkit-app [data-chatkit-theme="light"] .chatkit-footer {
+  background-color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+/* === END CHATKIT STYLES === */
