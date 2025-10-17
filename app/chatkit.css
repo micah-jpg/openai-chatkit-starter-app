@@ -47,19 +47,9 @@
   padding: 8px 12px !important;
   cursor: pointer;
 }
-/* Completely hide ChatKit "Thought for Xs" or similar indicators */
-.chatkit-thought,
-.chatkit-thinking,
-.chatkit-system-message,
-.chatkit-assistant-thinking,
-.chatkit-message:has(.chatkit-thought),
-[data-chatkit-theme] [class*="thought"],
-[data-chatkit-theme] [class*="thinking"] {
+/* Hide "Thought for Xs" text in ChatKit */
+span.AMqy5.truncate {
   display: none !important;
   visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
