@@ -1,14 +1,6 @@
-/* === ChatKit Scoped Styles === */
+/* === ChatKit Scoped Styles (Safe + Isolated) === */
 
-/* Make sure only elements INSIDE #chatkit-app are affected */
-#chatkit-app [data-chatkit-theme="light"],
-#chatkit-app [data-chatkit-theme="light"] * {
-  all: unset;
-  all: revert-layer;
-  box-sizing: border-box;
-}
-
-/* Restore layout basics for chat */
+/* Scope everything only inside the ChatKit container */
 #chatkit-app {
   display: flex;
   flex-direction: column;
@@ -16,9 +8,10 @@
   background: #ffffff !important;
   font-family: Arial, Helvetica, sans-serif;
   color: #1a1a1a;
+  box-sizing: border-box;
 }
 
-/* Chat-specific visuals */
+/* Chat structure cleanup */
 #chatkit-app [data-chatkit-theme="light"] .chatkit-root,
 #chatkit-app [data-chatkit-theme="light"] .chatkit-window,
 #chatkit-app [data-chatkit-theme="light"] .chatkit-main,
@@ -32,6 +25,7 @@
   margin: 0 !important;
 }
 
+/* Header, footer, input areas */
 #chatkit-app [data-chatkit-theme="light"] .chatkit-header,
 #chatkit-app [data-chatkit-theme="light"] .chatkit-footer,
 #chatkit-app [data-chatkit-theme="light"] .chatkit-input-container {
@@ -40,6 +34,7 @@
   box-shadow: none !important;
 }
 
+/* Buttons inside chat */
 #chatkit-app [data-chatkit-theme="light"] button {
   background-color: #0071e3 !important;
   color: #ffffff !important;
@@ -47,9 +42,9 @@
   padding: 8px 12px !important;
   cursor: pointer;
 }
-/* Hide "Thought for Xs" text in ChatKit */
-span.AMqy5.truncate {
+
+/* Hide the “Thought for Xs” text */
+#chatkit-app span.AMqy5.truncate {
   display: none !important;
   visibility: hidden !important;
 }
-
