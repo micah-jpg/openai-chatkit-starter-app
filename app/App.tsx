@@ -20,29 +20,30 @@ export default function App() {
   }, []);
 
   return (
-  <main
-  className="flex min-h-screen flex-col items-center justify-center"
-  style={{
-    backgroundColor: "transparent",
-    color: "#1a1a1a",
-  }}
->
-  <div
-    className="w-full h-full flex flex-col"
-    style={{
-      backgroundColor: "transparent",
-      boxShadow: "none",
-      borderRadius: "0",
-      overflow: "hidden",
-    }}
-  >
-    <ChatKitPanel
-      theme="light"
-      onWidgetAction={handleWidgetAction}
-      onResponseEnd={handleResponseEnd}
-      onThemeRequest={setScheme}
-    />
-  </div>
-</main>
+    <main
+      id="chatkit-app"
+      className="flex min-h-screen flex-col items-center justify-center"
+      style={{
+        backgroundColor: "transparent",
+        color: "#1a1a1a",
+      }}
+    >
+      <div
+        className="w-full h-full flex flex-col"
+        style={{
+          backgroundColor: "transparent",
+          boxShadow: "none",
+          borderRadius: "0",
+          overflow: "hidden",
+        }}
+      >
+        <ChatKitPanel
+          theme="light"
+          onWidgetAction={handleWidgetAction}
+          onResponseEnd={handleResponseEnd}
+          onThemeRequest={setScheme}
+        />
+      </div>
+    </main>
   );
 }
