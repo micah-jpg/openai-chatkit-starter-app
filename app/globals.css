@@ -48,147 +48,70 @@ button:hover, .btn:hover, a:hover {
   background-color: var(--accent-hover);
 }
 
-/* === Fix ChatKit dark input/footer bar === */
-[data-chatkit-theme="light"] footer,
-[data-chatkit-theme="light"] .chatkit-input,
-[data-chatkit-theme="light"] .chatkit-input-container {
-  background-color: #ffffff !important; /* make input area white */
-  border-top: 1px solid #e5e7eb !important; /* subtle gray divider */
-}
-
-/* keep text and button colors consistent */
+/* === ChatKit light mode cleanup === */
 [data-chatkit-theme="light"] textarea {
   background-color: #ffffff !important;
   color: #1a1a1a !important;
 }
 
 [data-chatkit-theme="light"] button {
-  background-color: #0071e3 !important; /* DoctorDisability blue */
-  color: #ffffff !important;
-}
-/* Remove dark navy background below input */
-[data-chatkit-theme="light"] .chatkit-main,
-[data-chatkit-theme="light"] .chatkit-window,
-[data-chatkit-theme="light"] .chatkit-root {
-  background-color: #ffffff !important;
-}
-/* Remove leftover navy background under input area */
-[data-chatkit-theme="light"] .chatkit-scroll-container,
-[data-chatkit-theme="light"] .chatkit-message-list,
-[data-chatkit-theme="light"] .chatkit-chat {
-  background-color: #ffffff !important;
-}
-
-/* Make sure the very bottom area stays white */
-[data-chatkit-theme="light"] .chatkit-chat > div:last-child {
-  background-color: #ffffff !important;
-}
-
-/* Override ChatKit light theme colors */
-[data-chatkit-theme="light"] {
-  --background: #ffffff !important;
-  --foreground: #1a1a1a !important;
-  --accent: #0071e3 !important;
-}
-
-/* Make the input/footer area white */
-[data-chatkit-theme="light"] footer,
-[data-chatkit-theme="light"] .chatkit-input,
-[data-chatkit-theme="light"] .chatkit-input-container,
-[data-chatkit-theme="light"] .chatkit-scroll-container,
-[data-chatkit-theme="light"] .chatkit-chat,
-[data-chatkit-theme="light"] .chatkit-window {
-  background-color: #ffffff !important;
-  border-top: 1px solid #e5e7eb !important;
-}
-
-/* Keep send button blue */
-[data-chatkit-theme="light"] button {
   background-color: #0071e3 !important;
   color: #ffffff !important;
 }
-/* === Remove all outer white/navy borders === */
-[data-chatkit-theme="light"] .chatkit-root,
-[data-chatkit-theme="light"] .chatkit-window,
-[data-chatkit-theme="light"] .chatkit-chat,
-[data-chatkit-theme="light"] .chatkit-main,
-[data-chatkit-theme="light"] .chatkit-scroll-container,
-[data-chatkit-theme="light"] .chatkit-message-list,
-[data-chatkit-theme="light"] .chatkit-footer {
-  background-color: transparent !important;
-  border: none !important;
+
+/* Input/footer clean white */
+[data-chatkit-theme="light"] footer,
+[data-chatkit-theme="light"] .chatkit-input,
+[data-chatkit-theme="light"] .chatkit-input-container {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e5e7eb !important;
   box-shadow: none !important;
 }
 
-/* Remove internal padding or spacing at edges */
-[data-chatkit-theme="light"] .chatkit-root {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* === CLEAN WHITE CHAT BACKGROUND, NO BORDERS OR SHADOWS === */
-html, body, main, #__next,
-[data-chatkit-theme="light"],
+/* === Core Chat Background === */
 [data-chatkit-theme="light"] .chatkit-root,
 [data-chatkit-theme="light"] .chatkit-window,
 [data-chatkit-theme="light"] .chatkit-main,
 [data-chatkit-theme="light"] .chatkit-chat,
 [data-chatkit-theme="light"] .chatkit-scroll-container,
 [data-chatkit-theme="light"] .chatkit-message-list {
-  background: #ffffff !important; /* solid white chat background */
+  background-color: #ffffff !important;
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
-  padding: 0 !important;
   margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Remove top/bottom gaps or padding */
-html, body {
-  height: 100% !important;
+/* === Fix top white/navy border issue === */
+[data-chatkit-theme="light"] html,
+[data-chatkit-theme="light"] body {
+  background-color: #ffffff !important;
   margin: 0 !important;
   padding: 0 !important;
-  background: #ffffff !important;
+  border: none !important;
   overflow: hidden !important;
 }
 
-/* Remove rounded corners and hidden overflow if any */
-[data-chatkit-theme="light"] .chatkit-window {
-  border-radius: 0 !important;
-  overflow: hidden !important;
-}
-
-/* Footer/Input area white and clean */
-[data-chatkit-theme="light"] footer,
-[data-chatkit-theme="light"] .chatkit-input,
+/* === Remove header/bottom navy strips === */
+[data-chatkit-theme="light"] .chatkit-header,
+[data-chatkit-theme="light"] .chatkit-footer,
 [data-chatkit-theme="light"] .chatkit-input-container {
   background-color: #ffffff !important;
   border: none !important;
   box-shadow: none !important;
 }
 
-/* No header borders or shadows */
-[data-chatkit-theme="light"] .chatkit-header,
-[data-chatkit-theme="light"] .chatkit-main > div:first-child {
-  border: none !important;
-  background: #ffffff !important;
-  box-shadow: none !important;
-}
-/* Completely flush chat window to iframe edges */
-html, body, main, #__next {
-  background: #ffffff !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
+/* === Remove all outer borders === */
+[data-chatkit-theme="light"] .chatkit-window {
+  border-radius: 0 !important;
   overflow: hidden !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Prevent any shadow or outline around the top of chat */
-[data-chatkit-theme="light"] .chatkit-root,
-[data-chatkit-theme="light"] .chatkit-window {
-  background: #ffffff !important;
-  border: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  box-shadow: none !important;
+/* === Keep send button blue === */
+[data-chatkit-theme="light"] button {
+  background-color: #0071e3 !important;
+  color: #ffffff !important;
 }
