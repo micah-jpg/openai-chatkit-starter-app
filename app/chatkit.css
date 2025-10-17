@@ -1,0 +1,34 @@
+/* === ChatKit-Specific Styles (scoped safely) === */
+
+[data-chatkit-theme="light"] .chatkit-root,
+[data-chatkit-theme="light"] .chatkit-window,
+[data-chatkit-theme="light"] .chatkit-main,
+[data-chatkit-theme="light"] .chatkit-chat,
+[data-chatkit-theme="light"] .chatkit-scroll-container,
+[data-chatkit-theme="light"] .chatkit-message-list {
+  background-color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+[data-chatkit-theme="light"] .chatkit-header,
+[data-chatkit-theme="light"] .chatkit-footer,
+[data-chatkit-theme="light"] .chatkit-input-container {
+  background-color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[data-chatkit-theme="light"] footer,
+[data-chatkit-theme="light"] .chatkit-input,
+[data-chatkit-theme="light"] .chatkit-input-container {
+  background-color: #ffffff !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+
+[data-chatkit-theme="light"] button {
+  background-color: #0071e3 !important;
+  color: #ffffff !important;
+}
