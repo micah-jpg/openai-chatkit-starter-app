@@ -42,11 +42,5 @@ export const getThemeConfig = (theme: ColorScheme): ThemeOption => ({
   },
   radius: "round",
   // Add other theme options here
-  // 👇 ADD THIS CSS PROPERTY WITH THE CORRECT SELECTOR
-  css: `
-    openai-chatkit::part(thought) {
-      display: none !important;
-    }
-  `,
   // chatkit.studio/playground to explore config options
 });
