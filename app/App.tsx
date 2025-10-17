@@ -1,5 +1,6 @@
 "use client";
 
+import "./chatkit.css";
 import { useCallback } from "react";
 import { ChatKitPanel, type FactAction } from "@/components/ChatKitPanel";
 import { useColorScheme } from "@/hooks/useColorScheme";
