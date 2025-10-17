@@ -61,7 +61,29 @@ export function ChatKitPanel({
       : "pending"
   );
   const [widgetInstanceKey, setWidgetInstanceKey] = useState(0);
+// 👇 PASTE THE NEW CODE HERE
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length) {
+          const thoughtElement = document.querySelector('[data-testid="thought"]');
+          if (thoughtElement) {
+            (thoughtElement as HTMLElement).style.display = 'none';
+          }
+        }
+      });
+    });
 
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+  // END OF NEW CODE
   const setErrorState = useCallback((updates: Partial<ErrorState>) => {
     setErrors((current) => ({ ...current, ...updates }));
   }, []);
