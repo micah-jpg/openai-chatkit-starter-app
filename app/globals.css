@@ -174,3 +174,21 @@ html, body {
   background: #ffffff !important;
   box-shadow: none !important;
 }
+/* Completely flush chat window to iframe edges */
+html, body, main, #__next {
+  background: #ffffff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  overflow: hidden !important;
+}
+
+/* Prevent any shadow or outline around the top of chat */
+[data-chatkit-theme="light"] .chatkit-root,
+[data-chatkit-theme="light"] .chatkit-window {
+  background: #ffffff !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
