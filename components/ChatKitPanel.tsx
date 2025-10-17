@@ -278,14 +278,11 @@ export function ChatKitPanel({
         enabled: true,
       },
     },
-    threadItemActions: {
-    feedback: false, // This stays the same
+  threadItemActions: {
+  feedback: false, // This stays the same
   },
   history: {
     enabled: false,
-  },
-  thought: {
-    enabled: false, // 👈 ADD THIS NEW BLOCK
   },
     onClientTool: async (invocation: {
       name: string;
