@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* === Global site-safe styles === */
+/* === Global Site Styles === */
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;
@@ -17,7 +17,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* === Button & link defaults (site safe) === */
+/* Buttons and links */
 button, .btn, a {
   background-color: var(--accent);
   color: #fff;
@@ -30,59 +30,3 @@ button, .btn, a {
 button:hover, .btn:hover, a:hover {
   background-color: var(--accent-hover);
 }
-
-/* === BEGIN CHATKIT-SPECIFIC STYLES === */
-/* Wrap all chat styles in a scope unique to the chat iframe app */
-#chatkit-app [data-chatkit-theme="light"],
-#chatkit-app [data-chatkit-theme="light"] * {
-  box-shadow: none !important;
-  border: none !important;
-}
-
-#chatkit-app [data-chatkit-theme="light"] html,
-#chatkit-app [data-chatkit-theme="light"] body {
-  background-color: #ffffff !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  overflow: hidden !important;
-}
-
-/* Chat background and core layout */
-#chatkit-app [data-chatkit-theme="light"] .chatkit-root,
-#chatkit-app [data-chatkit-theme="light"] .chatkit-window,
-#chatkit-app [data-chatkit-theme="light"] .chatkit-main,
-#chatkit-app [data-chatkit-theme="light"] .chatkit-chat,
-#chatkit-app [data-chatkit-theme="light"] .chatkit-scroll-container,
-#chatkit-app [data-chatkit-theme="light"] .chatkit-message-list {
-  background-color: #ffffff !important;
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Input/footer clean */
-#chatkit-app [data-chatkit-theme="light"] footer,
-#chatkit-app [data-chatkit-theme="light"] .chatkit-input,
-#chatkit-app [data-chatkit-theme="light"] .chatkit-input-container {
-  background-color: #ffffff !important;
-  border-top: 1px solid #e5e7eb !important;
-  box-shadow: none !important;
-}
-
-/* Send button */
-#chatkit-app [data-chatkit-theme="light"] button {
-  background-color: #0071e3 !important;
-  color: #ffffff !important;
-}
-
-/* Remove header/footer outlines */
-#chatkit-app [data-chatkit-theme="light"] .chatkit-header,
-#chatkit-app [data-chatkit-theme="light"] .chatkit-footer {
-  background-color: #ffffff !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-/* === END CHATKIT STYLES === */
