@@ -61,30 +61,7 @@ export function ChatKitPanel({
       : "pending"
   );
   const [widgetInstanceKey, setWidgetInstanceKey] = useState(0);
-// 👇 PASTE THE FINAL, CORRECT CODE HERE
-  useEffect(() => {
-    const observer = new MutationObserver((mutations, obs) => {
-      const chatkitElement = document.querySelector('openai-chatkit');
-      
-      if (chatkitElement && chatkitElement.shadowRoot) {
-        const thoughtElement = chatkitElement.shadowRoot.querySelector('[data-thread-item="workflow"]');
-        
-        if (thoughtElement) {
-          (thoughtElement as HTMLElement).style.display = 'none';
-        }
-      }
-    });
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-  // END OF NEW CODE
   const setErrorState = useCallback((updates: Partial<ErrorState>) => {
     setErrors((current) => ({ ...current, ...updates }));
   }, []);
