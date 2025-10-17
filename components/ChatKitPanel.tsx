@@ -61,7 +61,30 @@ export function ChatKitPanel({
       : "pending"
   );
   const [widgetInstanceKey, setWidgetInstanceKey] = useState(0);
+// 👇 PASTE THE NEW, CORRECT CODE HERE
+  useEffect(() => {
+    const styleId = 'chatkit-workflow-style-override';
+    if (document.getElementById(styleId)) {
+      return;
+    }
 
+    const style = document.createElement('style');
+    style.id = styleId;
+    style.innerHTML = `
+      [data-thread-item="workflow"] {
+        display: none !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      const styleElement = document.getElementById(styleId);
+      if (styleElement) {
+        styleElement.remove();
+      }
+    };
+  }, []);
+  // END OF NEW CODE
   const setErrorState = useCallback((updates: Partial<ErrorState>) => {
     setErrors((current) => ({ ...current, ...updates }));
   }, []);
