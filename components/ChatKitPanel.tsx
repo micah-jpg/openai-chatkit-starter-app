@@ -121,63 +121,41 @@ export function ChatKitPanel({
   }, []);
 
   useEffect(() => {
-    if (!isBrowser) {
-      return;
-    }
+  if (!isBrowser) return;
 
-    let timeoutId: number | undefined;
+  const handleLoaded = () => {
+    if (!isMountedRef.current) return;
+    setScriptStatus("ready");
+    setErrorState({ script: null });
+  };
+  const handleError = (event: Event) => {
+    console.error("Failed to load chatkit.js", event);
+    if (!isMountedRef.current) return;
+    setScriptStatus("error");
+    const detail = (event as CustomEvent<unknown>)?.detail ?? "unknown error";
+    setErrorState({ script: `Error: ${detail}`, retryable: false });
+    setIsInitializingSession(false);
+  };
 
-    const handleLoaded = () => {
-      if (!isMountedRef.current) {
-        return;
-      }
-      setScriptStatus("ready");
-      setErrorState({ script: null });
-    };
+  window.addEventListener("chatkit-script-loaded", handleLoaded);
+  window.addEventListener("chatkit-script-error", handleError as EventListener);
 
-    const handleError = (event: Event) => {
-      console.error("Failed to load chatkit.js for some reason", event);
-      if (!isMountedRef.current) {
-        return;
-      }
-      setScriptStatus("error");
-      const detail = (event as CustomEvent<unknown>)?.detail ?? "unknown error";
-      setErrorState({ script: `Error: ${detail}`, retryable: false });
-      setIsInitializingSession(false);
-    };
+  // ✅ Ensure the script is loaded inside this iframe/app
+  if (!window.customElements?.get("openai-chatkit")) {
+    setScriptStatus("pending");
+    loadChatkitScriptOnce().catch(() => {
+      /* onError handler above will surface the error */
+    });
+  } else {
+    handleLoaded();
+  }
 
-    window.addEventListener("chatkit-script-loaded", handleLoaded);
-    window.addEventListener(
-      "chatkit-script-error",
-      handleError as EventListener
-    );
+  return () => {
+    window.removeEventListener("chatkit-script-loaded", handleLoaded);
+    window.removeEventListener("chatkit-script-error", handleError as EventListener);
+  };
+}, [setErrorState]);
 
-    if (window.customElements?.get("openai-chatkit")) {
-      handleLoaded();
-    } else if (scriptStatus === "pending") {
-      timeoutId = window.setTimeout(() => {
-        if (!window.customElements?.get("openai-chatkit")) {
-          handleError(
-            new CustomEvent("chatkit-script-error", {
-              detail:
-                "ChatKit web component is unavailable. Verify that the script URL is reachable.",
-            })
-          );
-        }
-      }, 5000);
-    }
-
-    return () => {
-      window.removeEventListener("chatkit-script-loaded", handleLoaded);
-      window.removeEventListener(
-        "chatkit-script-error",
-        handleError as EventListener
-      );
-      if (timeoutId) {
-        window.clearTimeout(timeoutId);
-      }
-    };
-  }, [scriptStatus, setErrorState]);
 
   const isWorkflowConfigured = Boolean(
     WORKFLOW_ID && !WORKFLOW_ID.startsWith("wf_replace")
