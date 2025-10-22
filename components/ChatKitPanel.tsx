@@ -13,6 +13,54 @@ import {
 import { ErrorOverlay } from "./ErrorOverlay";
 import type { ColorScheme } from "@/hooks/useColorScheme";
 
+const CHATKIT_SRC = "https://cdn.platform.openai.com/deployments/chatkit/chatkit.js";
+
+let chatkitScriptLoading: Promise<void> | null = null;
+function loadChatkitScriptOnce(): Promise<void> {
+  if (typeof window === "undefined") return Promise.resolve();
+  if (window.customElements?.get("openai-chatkit")) {
+    // Already registered
+    return Promise.resolve().then(() => {
+      window.dispatchEvent(new Event("chatkit-script-loaded"));
+    });
+  }
+  if (chatkitScriptLoading) return chatkitScriptLoading;
+
+  chatkitScriptLoading = new Promise<void>((resolve, reject) => {
+    // Reuse existing tag if present
+    let existing = document.getElementById("openai-chatkit-script") as HTMLScriptElement | null;
+    if (existing) {
+      existing.addEventListener("load", () => {
+        window.dispatchEvent(new Event("chatkit-script-loaded"));
+        resolve();
+      });
+      existing.addEventListener("error", () => {
+        const detail = "Failed to load chatkit.js (existing tag).";
+        window.dispatchEvent(new CustomEvent("chatkit-script-error", { detail }));
+        reject(new Error(detail));
+      });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = "openai-chatkit-script";
+    script.src = CHATKIT_SRC;
+    script.async = true;
+    script.onload = () => {
+      window.dispatchEvent(new Event("chatkit-script-loaded"));
+      resolve();
+    };
+    script.onerror = () => {
+      const detail = "Failed to load chatkit.js";
+      window.dispatchEvent(new CustomEvent("chatkit-script-error", { detail }));
+      reject(new Error(detail));
+    };
+    document.head.appendChild(script);
+  });
+
+  return chatkitScriptLoading;
+}
+
 export type FactAction = {
   type: "save";
   factId: string;
