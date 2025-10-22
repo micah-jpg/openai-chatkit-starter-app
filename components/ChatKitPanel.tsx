@@ -28,7 +28,7 @@ function loadChatkitScriptOnce(): Promise<void> {
 
   chatkitScriptLoading = new Promise<void>((resolve, reject) => {
     // Reuse existing tag if present
-    let existing = document.getElementById("openai-chatkit-script") as HTMLScriptElement | null;
+    const existing = document.getElementById("openai-chatkit-script") as HTMLScriptElement | null;
     if (existing) {
       existing.addEventListener("load", () => {
         window.dispatchEvent(new Event("chatkit-script-loaded"));
