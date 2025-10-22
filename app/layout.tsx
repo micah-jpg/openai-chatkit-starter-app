@@ -12,12 +12,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isInIframe =
+    typeof window !== "undefined" && window.self !== window.top;
+
   return (
     <html lang="en" data-color-scheme="light">
       <head>
         <meta name="robots" content="noindex, nofollow" />
-        <Script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" strategy="beforeInteractive" />
+
+        {/* ✅ Only load chatkit.js when inside an iframe (isolated app) */}
+        {typeof window === "undefined" ? null : isInIframe ? (
+          <Script
+            src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
+            strategy="beforeInteractive"
+          />
+        ) : null}
       </head>
+
       <body
         className="antialiased"
         style={{
